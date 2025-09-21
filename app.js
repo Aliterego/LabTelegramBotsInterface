@@ -1,31 +1,20 @@
-const zodiacSigns = [
-  { id: "aries", name: "♈ Овен" },
-  { id: "taurus", name: "♉ Телец" },
-  { id: "gemini", name: "♊ Близнецы" },
-  { id: "cancer", name: "♋ Рак" },
-  { id: "leo", name: "♌ Лев" },
-  { id: "virgo", name: "♍ Дева" },
-  { id: "libra", name: "♎ Весы" },
-  { id: "scorpio", name: "♏ Скорпион" },
-  { id: "sagittarius", name: "♐ Стрелец" },
-  { id: "capricorn", name: "♑ Козерог" },
-  { id: "aquarius", name: "♒ Водолей" },
-  { id: "pisces", name: "♓ Рыбы" },
+const actors = [
+  { id: "dicaprio", name: "Леонардо ДиКаприо" },
+  { id: "hanks", name: "Том Хэнкс" },
+  { id: "deniro", name: "Роберт Де Ниро" },
+  { id: "streep", name: "Мерил Стрип" },
+  { id: "pitt", name: "Брэд Питт" },
 ];
 
-// Находим контейнер
-const list = document.getElementById("zodiac-list");
+const list = document.getElementById("actor-list");
 
-// Рисуем кнопки
-zodiacSigns.forEach(sign => {
+actors.forEach(actor => {
   const btn = document.createElement("button");
-  btn.textContent = sign.name;
+  btn.textContent = actor.name;
   btn.onclick = () => {
-    // Отправляем данные обратно в бота
-    Telegram.WebApp.sendData(sign.id);
+    Telegram.WebApp.sendData(actor.id);
   };
   list.appendChild(btn);
 });
 
-// Инициализация Telegram WebApp
 Telegram.WebApp.ready();
